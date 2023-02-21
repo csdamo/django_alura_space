@@ -1,4 +1,5 @@
-# django_alura_space
+# Django Alura Space
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=status&message=em%20desenvolvimento&color=GREEN&style=flat)
 
 Página web que permite que usuários publiquem fotos sobre o espaço e possam ver quais são as imagens mais visualizadas e as mais apreciadas pela comunidade de entusiastas de astronomia. As fotos ficam disponíveis em uma galeria que pode ser acessada por usuários cadastrados.
 
@@ -32,7 +33,7 @@ A aplicação está sendo desenvolvido durante a Formação em Django da escola 
 * Imput de busca: é feito um filtro das imagens que contém a palavra informada na redação do seu nome.
 
 ## Melhorias Feitas
->**Nota:** Essas melhorias podem ser diferentes das orientadas na Formação de Django da Alura
+>**Nota:** Essas melhorias podem ser diferentes das orientadas na Formação de Django da Alura. se você está seguindo os pasos do curso, você deve buscar o repositório indicado pelo instrutor.
 
 ### Usuários
 * Filtro do menu com acesso restrito aos usuários logados
