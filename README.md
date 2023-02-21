@@ -44,8 +44,8 @@ A aplicação está sendo desenvolvido durante a Formação em Django da escola 
 * As imagens podem ser filtradas pelas tags, basta clicar sobre a ela.
 * São exibidas na galeria e no detalhe das imagens a quantidade de usuários que favoritaram e quantidade de visualizações da fotografia.
 * Foi criado um campo de "many_to_many" no model de "Fotografia", para criar uma relação de "muitos para muitos" dos usuários com as fotografias, para representar as imagens "favoritas" do usuário
-![image](https://user-images.githubusercontent.com/64370426/220451884-5c09ec89-8622-43d0-9f12-f4d67d092b62.png)
 
+![image](https://user-images.githubusercontent.com/64370426/220451884-5c09ec89-8622-43d0-9f12-f4d67d092b62.png)
 
 ![image](https://user-images.githubusercontent.com/64370426/220452166-0063fc37-ab3d-4654-a9ce-d1e827adc6fb.png)
 
@@ -58,9 +58,9 @@ A aplicação está sendo desenvolvido durante a Formação em Django da escola 
 ## Como instalar o projeto na sua máquina:
 
 * Para instalar o projeto na sua máquina você deverá ter o Python instalado (site oficial do Python para download: https://www.python.org/).
-* Para clonar o projeto a partir deste repositório, você também precisará ter o Git instalado.
+* Para clonar o projeto a partir deste repositório, você também precisará ter o Git instalado (site do oficial do Git para dowload: https://git-scm.com/).
 * Abra o terminar no seu computador e posicione-se dentro do diretório em que você quer manter o projeto.
-* Rode o comando ```git clone https://github.com/csdamo/django_alura_space.git (site do oficial do Git para dowload: https://git-scm.com/)```
+* Rode o comando ```git clone https://github.com/csdamo/django_alura_space.git ```
 * Ainda no terminal, posicione-se entro do diretório do projeto (```cd django_alura_space```) e rode o comando para instalar a biblioteca virtualenv, caso ele ainda não esteja instalada ```pip install virtualenv```.
 * Crie um ambiente virtual através do comando ```virtualenv venv``` (o nome do ambiente pode ser qualquer um, mas é recomendado que use o nome padão "venv")
 * Ative seu ambiente virtual: ```venv/Scripts/activate``` (Windows) / ```source venv/bin/activate``` (Linux).
