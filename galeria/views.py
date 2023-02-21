@@ -21,6 +21,10 @@ def index(request):
 
 def imagem(request, foto_id):
     fotografia = get_object_or_404(Fotografia, pk=foto_id)
+    if fotografia:
+        visualizacoes = fotografia.total_visualizacoes
+        fotografia.total_visualizacoes = visualizacoes + 1
+        fotografia.save()
     return render(request, 'galeria/imagem.html', {'fotografia': fotografia})
 
 def buscar (request):
@@ -134,4 +138,21 @@ def fotos_usuario(request, user_id):
         'user_id': user
     }
     
+    return render(request, 'galeria/index.html', context=context)
+
+def mais_visualizadas(request):
+    
+    if not request.user.is_authenticated:
+        messages.error(request, 'Usuário não logado')
+        return redirect('login')
+    
+    fotografias = Fotografia.objects.order_by('-total_visualizacoes').filter(publicada=True)[:3]
+    categorias = Categoria.objects.all()
+    user_id = request.user
+
+    context = {
+        'fotografias': fotografias, 
+        'categorias': categorias,
+        'user_id': user_id
+    }
     return render(request, 'galeria/index.html', context=context)

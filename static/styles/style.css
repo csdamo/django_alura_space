@@ -181,7 +181,7 @@ table {
 
 .cartao__texto {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     flex-wrap: wrap;
 }
 
@@ -241,12 +241,30 @@ table {
     margin-top: 1rem;
 }
 
+.imagem__info__texto {
+    display: flex;
+    justify-content:start;
+    flex-wrap: wrap;
+}
+
+.imagem__info__texto__icons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 12px;
+    align-items: center;
+}
+
+.imagem__info__texto__icons img {
+    height: 1.3rem;
+    margin: 5px;
+}
+
 .imagem__texto {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: #FFFFFF;
-    margin-top: 0.5rem;
+    margin-top: 0.8rem;
 }
 
 .imagem__titulo {

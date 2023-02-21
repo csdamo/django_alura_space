@@ -16,6 +16,17 @@
                         <p class="imagem__titulo">{{fotografia.nome}}</p>
                         <p class="imagem__descricao">{{fotografia.legenda}}</p>
                         <p class="imagem__texto">{{fotografia.descricao}}</p>
+                        <div class="imagem__info__texto">
+                            <div class="imagem__info__texto__icons">
+                                <p class="imagem__texto"> {{fotografia.total_favoritos}}</p>
+                                <img src="{% static '/assets/ícones/1x/favorite.png' %}" alt="ícone de coração">
+                            </div>
+                            <div class="imagem__info__texto__icons">
+                                <p class="imagem__texto"> {{fotografia.total_visualizacoes}}</p>
+                                <img src="{% static '/assets/ícones/1x/eye.png' %}" alt="ícone de view">
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

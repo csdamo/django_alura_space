@@ -37,17 +37,24 @@
                             <div class="cartao__info">
                                 <p class="cartao__titulo">{{fotografia.nome}}</p>
                                 <div class="cartao__texto">
-                                    <p class="cartao__descricao">{{fotografia.legenda}}</p>
-                                    <span>
-                                        <a class="cartao__links" href="{% url 'favorito' fotografia.id %}">
-                                            {{fotografia.total_favoritos}}
-                                            {% if user_id in fotografia.favorito.all %}
-                                            <img src="{% static '/assets/ícones/1x/favorite.png' %}" alt="ícone de coração">
-                                            {% else %}
-                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
-                                            {% endif %}
-                                        </a>
-                                    </span>
+                                    <p class="cartao__descricao">{{fotografia.legenda|truncatechars:50}}</p>
+                                    <div>
+                                        <span>
+                                            <a class="cartao__links" href="{% url 'favorito' fotografia.id %}">
+                                                {{fotografia.total_favoritos}}
+                                                {% if user_id in fotografia.favorito.all %}
+                                                <img src="{% static '/assets/ícones/1x/favorite.png' %}" alt="ícone de coração">
+                                                {% else %}
+                                                <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
+                                                {% endif %}
+                                            </a>
+                                        </span>
+                                        <span>
+                                            {{fotografia.total_visualizacoes}}
+                                            <img src="{% static '/assets/ícones/1x/eye.png' %}" alt="ícone de view">
+                                        </span>
+                                    </div>
+                                    
                                 </div>
                                 <div class="cartao__texto">
                                     <span>
