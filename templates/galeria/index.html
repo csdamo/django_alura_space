@@ -39,13 +39,20 @@
                                 <div class="cartao__texto">
                                     <p class="cartao__descricao">{{fotografia.legenda}}</p>
                                     <span>
-                                        <a class="favorito" href="{% url 'favorito' fotografia.id %}">
+                                        <a class="cartao__links" href="{% url 'favorito' fotografia.id %}">
                                             {{fotografia.total_favoritos}}
                                             {% if user_id in fotografia.favorito.all %}
                                             <img src="{% static '/assets/ícones/1x/favorite.png' %}" alt="ícone de coração">
                                             {% else %}
                                             <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
                                             {% endif %}
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="cartao__texto">
+                                    <span>
+                                        <a class="cartao__links" href="{% url 'fotos_usuario' fotografia.usuario.id %}">
+                                            <p class="cartao__descricao"><span class="texto-negrito">Publicado por:</span> @{{fotografia.usuario}} | {{fotografia.data_fotografia}} </p>
                                         </a>
                                     </span>
                                 </div>

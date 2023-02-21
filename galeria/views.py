@@ -10,12 +10,12 @@ def index(request):
     
     fotografias = Fotografia.objects.order_by('-data_fotografia').filter(publicada=True)
     categorias = Categoria.objects.all()
-    user_id = request.user
+    user = request.user
 
     context = {
         'fotografias': fotografias, 
         'categorias': categorias,
-        'user_id': user_id
+        'user_id': user
     }
     return render(request, 'galeria/index.html', context=context)
 
@@ -82,7 +82,8 @@ def mais_votados(request):
     return render(request, 'galeria/index.html', context=context)
 
 def meus_favoritos(request):
-    user_id = request.user.id
+    user = request.user
+    user_id = user.id
     if not request.user.is_authenticated:
         messages.error(request, 'Usuário não logado')
         return redirect('login')
@@ -94,6 +95,43 @@ def meus_favoritos(request):
     context = {
         'fotografias': fotografias, 
         'categorias': categorias,
-        'user_id': user_id
+        'user_id': user
     }
+    return render(request, 'galeria/index.html', context=context)
+
+def minhas_fotos(request):
+    user = request.user
+    user_id = user.id
+    
+    if not request.user.is_authenticated:
+        messages.error(request, 'Usuário não logado')
+        return redirect('login')
+   
+    fotografias = Fotografia.objects.order_by('-data_fotografia').filter(usuario=user_id)
+    categorias = Categoria.objects.all()
+   
+
+    context = {
+        'fotografias': fotografias, 
+        'categorias': categorias,
+        'user_id': user
+    }
+    
+    return render(request, 'galeria/index.html', context=context)
+
+def fotos_usuario(request, user_id):
+    
+    if not request.user.is_authenticated:
+        messages.error(request, 'Usuário não logado')
+        return redirect('login')
+   
+    fotografias = Fotografia.objects.order_by('-data_fotografia').filter(usuario=user_id)
+    categorias = Categoria.objects.all()
+    user = request.user
+    context = {
+        'fotografias': fotografias, 
+        'categorias': categorias,
+        'user_id': user
+    }
+    
     return render(request, 'galeria/index.html', context=context)

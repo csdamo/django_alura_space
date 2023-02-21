@@ -7,6 +7,7 @@
             <a href="{% url 'cadastro' %}"><img src="{% static '/assets/ícones/1x/register.png' %}"> Cadastro</a>
         {% else %}
             <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
+            <a href="{% url 'minhas_fotos' %}"><img src="{% static '/assets/ícones/1x/folder.png' %}"> Minhas Fotos</a>
             <a href="{% url 'mais_votados' %}"><img src="{% static '/assets/ícones/1x/mais_votados.png' %}"> Mais Votados</a>
             <a href="{% url 'meus_favoritos' %}"><img src="{% static '/assets/ícones/1x/star.png' %}"> Meus Favoritos</a>
             <a href="{% url 'logout' %}"><img src="{% static '/assets/ícones/1x/logout.png' %}"> Logout</a>

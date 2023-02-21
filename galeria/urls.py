@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import buscar, filtro_tags, index, imagem, favorito, mais_votados, meus_favoritos
+from .views import buscar, filtro_tags, index, imagem, favorito, mais_votados, meus_favoritos, minhas_fotos, fotos_usuario
 
 urlpatterns = [
     path('', index, name='index'),
@@ -9,4 +9,6 @@ urlpatterns = [
     path('favorito/<int:foto_id>', favorito, name='favorito'),
     path('mais_votados', mais_votados, name='mais_votados'),
     path('meus_favoritos', meus_favoritos, name='meus_favoritos'),
+    path('minhas_fotos', minhas_fotos, name='minhas_fotos'),
+    path('fotos_usuario/<int:user_id>', fotos_usuario, name='fotos_usuario'),
 ]

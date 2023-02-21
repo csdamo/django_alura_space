@@ -194,14 +194,18 @@ table {
     margin-top: 0.8em;
 }
 
-.favorito {
+.cartao__links {
     text-decoration: none;
     color: #D9D9D9;
 }
 
-.favorito:hover {
+.cartao__links:hover {
     text-decoration: none;
     color: #D9D9D9;
+}
+
+.texto-negrito {
+    font-weight: bold 
 }
 
 .galeria {
