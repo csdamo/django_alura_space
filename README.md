@@ -10,7 +10,7 @@ Página web que permite que usuários publiquem fotos sobre o espaço e possam v
 | :fire: Desafio     | https://cursos.alura.com.br/formacao-django
 <!-- | :rocket: URL         | https://url-deploy.com.br  -->
 
-![image](https://user-images.githubusercontent.com/64370426/220473926-7cd43a1c-ad77-4a47-9da4-30b3c92509c7.png)#vitrinedev)
+![image](https://user-images.githubusercontent.com/64370426/220473926-7cd43a1c-ad77-4a47-9da4-30b3c92509c7.png#vitrinedev)
 
 
 ## Sobre o Projeto
