@@ -6,4 +6,3 @@ urlpatterns = [
     path('imagem/<int:foto_id>', imagem, name='imagem'),
     path('buscar', buscar, name='buscar')
 ]
-
