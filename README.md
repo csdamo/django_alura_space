@@ -33,7 +33,7 @@ A aplicação está sendo desenvolvido durante a Formação em Django da escola 
 * Imput de busca: é feito um filtro das imagens que contém a palavra informada na redação do seu nome.
 
 ## Melhorias Feitas
->**Nota:** Essas melhorias podem ser diferentes das orientadas na Formação de Django da Alura. se você está seguindo os pasos do curso, você deve buscar o repositório indicado pelo instrutor.
+>**Nota:** Essas melhorias podem ser diferentes das orientadas na Formação de Django da Alura. Se você está seguindo os pasos do curso, você deve buscar o repositório indicado pelo instrutor.
 
 ### Usuários
 * Filtro do menu com acesso restrito aos usuários logados
@@ -43,14 +43,47 @@ A aplicação está sendo desenvolvido durante a Formação em Django da escola 
 * Exibição das tags na página principal de forma dinâmica: foi criado uma tabela no banco de dados para cadastrar as categorias possíveis, que corresponem às tags da página principal.
 * As categorias (ou tags) passam a ser relacionadas às fotografias atrávés de um campo tipo chave estrangeira.
 * As imagens podem ser filtradas pelas tags, basta clicar sobre a ela.
-* São exibidas na galeria e no detalhe das imagens a quantidade de usuários que favoritaram e quantidade de visualizações da fotografia.
-* Foi criado um campo de "many_to_many" no model de "Fotografia", para criar uma relação de "muitos para muitos" dos usuários com as fotografias, para representar as imagens "favoritas" do usuário
+* São exibidas, na galeria e no detalhe da imagem, a quantidade de usuários que favoritaram e quantidade de visualizações da fotografia.
+* Foi criado um campo de "ManyToMany" no model de "Fotografia", para criar uma relação de "muitos para muitos" entre usuários e fotografias, para representar as imagens "favoritas" do usuário
 
-![image](https://user-images.githubusercontent.com/64370426/220451884-5c09ec89-8622-43d0-9f12-f4d67d092b62.png)
+```python
+class Fotografia(models.Model):
+      
+    nome = models.CharField(max_length=100, null=False, blank=False)
+    legenda = models.CharField(max_length=150, null=False, blank=False)
+    descricao = models.TextField(null=False, blank=False)
+    foto = models.ImageField(upload_to='fotos/%Y/%m/%d/', blank=True)
+    publicada = models.BooleanField(default=False)
+    data_fotografia = models.DateTimeField(default=datetime.now, blank=True)
+    usuario = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True, blank=False, related_name='user')
+    categoria = models.ForeignKey(to=Categoria, on_delete=models.PROTECT, null=True, blank=True)   
+    favorito = models.ManyToManyField(User)
+    total_favoritos = models.PositiveIntegerField(default=0)
+    total_visualizacoes = models.PositiveIntegerField(default=0)
+        
+    def __str__(self):
+        return self.nome
+```
+```python
 
-![image](https://user-images.githubusercontent.com/64370426/220452166-0063fc37-ab3d-4654-a9ce-d1e827adc6fb.png)
+def favorito(request, foto_id):
+    user_id = request.user.id
+    fotografia = get_object_or_404(Fotografia, pk=foto_id)
+    favorito = fotografia.favorito.filter(user=user_id)
+    total_favoritos = fotografia.total_favoritos
+    
+    if favorito:
+       fotografia.favorito.remove(user_id)
+       fotografia.total_favoritos = int(total_favoritos) - 1
+    else:
+        fotografia.favorito.add(user_id)
+        fotografia.total_favoritos = int(total_favoritos) + 1
+    fotografia.save()
+    return redirect ('index')
 
-* O usuário pode favoritar a imagem (um ícone de coração ficará alterado quando a imagem for favoritada).
+```
+
+* O usuário pode favoritar a imagem (um ícone de coração ficará alterado quando a imagem for curtida).
 * Pode ver as suas fotos favoritas.
 * Pode ver o ranque das imagens mais favoritadas.
 * Cada vez que um usuário entra no detalhe da imagem, é adicionada uma visualização à fotografia
