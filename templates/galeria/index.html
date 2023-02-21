@@ -10,10 +10,13 @@
         <section class="tags">
             <p class="tags__titulo">Busque por tags:</p>
             <ul class="tags__lista">
-                <li class="tags__tag">Nebulosa</li>
-                <li class="tags__tag">Estrela</li>
-                <li class="tags__tag">Galáxia</li>
-                <li class="tags__tag">Planeta</li>
+                {% for categoria in categorias %}
+                <li class="tags__tag">
+                    <a class="no-anchor" href="{% url 'filtro_tags' categoria.id %}">
+                    {{categoria.nome}}
+                    </a>
+                </li>
+                {% endfor %}
             </ul>
         </section>
         <section class="galeria">
@@ -30,7 +33,7 @@
                                 <img class="card__imagem" src="{{fotografia.foto.url}}" alt="foto">
                                 {% endif %}
                             </a>
-                            <span class="card__tag">{{fotografia.get_categoria_display}}</span>
+                            <span class="card__tag">{{fotografia.categoria}}</span>
                             <div class="card__info">
                                 <p class="card__titulo">{{fotografia.nome}}</p>
                                 <div class="card__texto">

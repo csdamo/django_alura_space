@@ -383,6 +383,11 @@ table {
     cursor: pointer;
 }
 
+.tags__tag a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .alert {
     --bs-alert-bg: transparent;
     --bs-alert-padding-x: 1rem;
