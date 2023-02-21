@@ -20,6 +20,7 @@ class Fotografia(models.Model):
     usuario = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True, blank=False, related_name='user')
     categoria = models.ForeignKey(to=Categoria, on_delete=models.PROTECT, null=True, blank=True)   
     favorito = models.ManyToManyField(User)
+    total_favoritos = models.PositiveIntegerField(default=0)
         
     def __str__(self):
         return self.nome

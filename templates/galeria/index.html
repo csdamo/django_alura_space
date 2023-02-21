@@ -39,7 +39,8 @@
                                 <div class="cartao__texto">
                                     <p class="cartao__descricao">{{fotografia.legenda}}</p>
                                     <span>
-                                        <a href="{% url 'favorito' fotografia.id %}">
+                                        <a class="favorito" href="{% url 'favorito' fotografia.id %}">
+                                            {{fotografia.total_favoritos}}
                                             {% if user_id in fotografia.favorito.all %}
                                             <img src="{% static '/assets/ícones/1x/favorite.png' %}" alt="ícone de coração">
                                             {% else %}

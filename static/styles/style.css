@@ -194,6 +194,16 @@ table {
     margin-top: 0.8em;
 }
 
+.favorito {
+    text-decoration: none;
+    color: #D9D9D9;
+}
+
+.favorito:hover {
+    text-decoration: none;
+    color: #D9D9D9;
+}
+
 .galeria {
     display: flex;
     width: 100%;
