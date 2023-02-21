@@ -1,6 +1,6 @@
 # django_alura_space
 
-Página web que permite que usuários publiquem fotos sobre o espaço e possam ver quais são as imagens mais visualizadas e as mais apreciadas pela comunidade de entusiastas da astronomia. As fotos ficam disponíveis em uma galeria que pode ser acessada por usuários cadastrados na página.
+Página web que permite que usuários publiquem fotos sobre o espaço e possam ver quais são as imagens mais visualizadas e as mais apreciadas pela comunidade de entusiastas de astronomia. As fotos ficam disponíveis em uma galeria que pode ser acessada por usuários cadastrados.
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
@@ -14,7 +14,7 @@ Página web que permite que usuários publiquem fotos sobre o espaço e possam v
 
 ## Sobre o Projeto
 
-O projeto **django_alura_space**, como fica evidenciado em seu nome, utiliza como principal tecnologia o framework Django, na linguagem Python. Para persistencia dos dados, está sendo utilizado o SQLite
+O projeto **django_alura_space**, como fica evidenciado em seu nome, utiliza como principal tecnologia o framework Django, desenvolvido na linguagem Python. O banco de dados utilizado para persistência dos dados é o SQLite.
 
 A aplicação está sendo desenvolvido durante a Formação em Django da escola de Programação da Alura, que atualmente está disponível até o módulo 3. Conforme o avanço dos estudos na Formação, outras funcionalidades do projeto serão lieradas.
 
@@ -27,9 +27,9 @@ A aplicação está sendo desenvolvido durante a Formação em Django da escola 
 
 
 ### Galeria
-* Galeria: no index são exibidas as imagens ordenadas pelo campo 'data_fotografia' e filtradas pelo campo "publicada=True"
-* Detalhe: são exibidas mais informações sobre a imagem publicada ao clicar sobre ela
-* Busca: caixa de busca por palavras continas no nome da fotografia 
+* Galeria de imagens: no index são exibidas as fotos ordenadas pelo campo 'data_fotografia' e filtradas pelo campo "publicada=True".
+* Detalhe: são exibidas mais informações sobre a imagem publicada ao clicar sobre ela.
+* Imput de busca: é feito um filtro das imagens que contém a palavra informada na redação do seu nome.
 
 ## Melhorias Feitas
 >**Nota:** Essas melhorias podem ser diferentes das orientadas na Formação de Django da Alura
@@ -41,13 +41,15 @@ A aplicação está sendo desenvolvido durante a Formação em Django da escola 
 ### Galeria
 * Exibição das tags na página principal de forma dinâmica: foi criado uma tabela no banco de dados para cadastrar as categorias possíveis, que corresponem às tags da página principal.
 * As categorias (ou tags) passam a ser relacionadas às fotografias atrávés de um campo tipo chave estrangeira.
-* As imagens podem ser filtradas pelas tags, basta clicar sobre a tag.
+* As imagens podem ser filtradas pelas tags, basta clicar sobre a ela.
 * São exibidas na galeria e no detalhe das imagens a quantidade de usuários que favoritaram e quantidade de visualizações da fotografia.
-* foi criado um campo de "many_to_many" no model de "Fotografia", para criar uma relação de "muitos para muitos" dos usuários com as fotografias, para representar as imagens "favoritas" do usuário
+* Foi criado um campo de "many_to_many" no model de "Fotografia", para criar uma relação de "muitos para muitos" dos usuários com as fotografias, para representar as imagens "favoritas" do usuário
 ![image](https://user-images.githubusercontent.com/64370426/220451884-5c09ec89-8622-43d0-9f12-f4d67d092b62.png)
-* O usuário pode favoritar a imagem (um ícone de coração ficará alterado quando a imagem for favoritada).
+
+
 ![image](https://user-images.githubusercontent.com/64370426/220452166-0063fc37-ab3d-4654-a9ce-d1e827adc6fb.png)
 
+* O usuário pode favoritar a imagem (um ícone de coração ficará alterado quando a imagem for favoritada).
 * Pode ver as suas fotos favoritas.
 * Pode ver o ranque das imagens mais favoritadas.
 * Cada vez que um usuário entra no detalhe da imagem, é adicionada uma visualização à fotografia
