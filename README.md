@@ -94,6 +94,15 @@ def favorito(request, foto_id):
 ![image](https://user-images.githubusercontent.com/64370426/220458310-8de78c90-865c-4b09-9c9d-37ec9eb84024.png)
 > Alguns campos da tabela de usuário não foram detalhados aqui. Esta tabela corresponde a tabela criada pelo Django para controle de usuários do sistema
 
+
+## Principais tecnologias utilizadas
+![django](https://user-images.githubusercontent.com/64370426/220480498-fc7293ed-912d-4cbd-82cf-14b621b883c9.png)   ![Python](https://user-images.githubusercontent.com/64370426/220479830-4eadb646-5a5f-4e98-822f-f08531868fcf.png)   ![SQLite370 svg](https://user-images.githubusercontent.com/64370426/220480506-74805175-d11a-4166-b0c8-262d56b7c65d.png)
+
+
+
+
+
+
 ## Como instalar o projeto na sua máquina:
 
 * Para instalar o projeto na sua máquina você deverá ter o Python instalado (site oficial do Python para download: https://www.python.org/).
