@@ -18,8 +18,9 @@ class Fotografia(models.Model):
     publicada = models.BooleanField(default=False)
     data_fotografia = models.DateTimeField(default=datetime.now, blank=True)
     usuario = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True, blank=False, related_name='user')
-    categoria = models.ForeignKey(to=Categoria, on_delete=models.PROTECT, null=True, blank=True)
-    
+    categoria = models.ForeignKey(to=Categoria, on_delete=models.PROTECT, null=True, blank=True)   
+    favorito = models.ManyToManyField(User)
+        
     def __str__(self):
         return self.nome
     

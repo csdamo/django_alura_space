@@ -10,13 +10,16 @@ def index(request):
     
     fotografias = Fotografia.objects.order_by('-data_fotografia').filter(publicada=True)
     categorias = Categoria.objects.all()
+    user_id = request.user
+
     context = {
         'fotografias': fotografias, 
-        'categorias': categorias
+        'categorias': categorias,
+        'user_id': user_id
     }
     return render(request, 'galeria/index.html', context=context)
 
-def imagem (request, foto_id):
+def imagem(request, foto_id):
     fotografia = get_object_or_404(Fotografia, pk=foto_id)
     return render(request, 'galeria/imagem.html', {'fotografia': fotografia})
 
@@ -46,4 +49,14 @@ def filtro_tags(request, categoria_id):
         'categorias': categorias
     }
     return render(request, 'galeria/index.html', context=context)
+
+def favorito(request, foto_id):
+    user_id = request.user.id
+    fotografia = get_object_or_404(Fotografia, pk=foto_id)
+    favorito = fotografia.favorito.filter(user=user_id)
+    if favorito:
+       fotografia.favorito.remove(user_id)
+    else:
+        fotografia.favorito.add(user_id)
+    return redirect ('index')
     

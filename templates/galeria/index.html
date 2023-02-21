@@ -39,7 +39,13 @@
                                 <div class="card__texto">
                                     <p class="card__descricao">{{fotografia.legenda}}</p>
                                     <span>
-                                        <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
+                                        <a href="{% url 'favorito' fotografia.id %}">
+                                            {% if user_id in fotografia.favorito.all %}
+                                            <img src="{% static '/assets/ícones/1x/favorite.png' %}" alt="ícone de coração">
+                                            {% else %}
+                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
+                                            {% endif %}
+                                        </a>
                                     </span>
                                 </div>
                             </div>
