@@ -105,19 +105,69 @@ def favorito(request, foto_id):
 
 ## Como instalar o projeto na sua máquina:
 
-* Para instalar o projeto na sua máquina você deverá ter o Python instalado (site oficial do Python para download: https://www.python.org/).
-* Para clonar o projeto a partir deste repositório, você também precisará ter o Git instalado (site do oficial do Git para dowload: https://git-scm.com/).
-* Abra o terminar no seu computador e posicione-se dentro do diretório em que você quer manter o projeto.
-* Rode o comando ```git clone https://github.com/csdamo/django_alura_space.git ```
-* Ainda no terminal, posicione-se entro do diretório do projeto (```cd django_alura_space```) e rode o comando para instalar a biblioteca virtualenv, caso ele ainda não esteja instalada ```pip install virtualenv```.
-* Crie um ambiente virtual através do comando ```virtualenv venv``` (o nome do ambiente pode ser qualquer um, mas é recomendado que use o nome padão "venv")
-* Ative seu ambiente virtual: ```venv/Scripts/activate``` (Windows) / ```source venv/bin/activate``` (Linux).
-* Com o ambiente ativado, rode o comando pip install -r requirements.txt (no arquivo requirements. estão todas as bibliotecas necessárias para rodas o projeto)
+### Requisitos:
+* Instalação do Python (a partir da versão 3.9)
+> https://www.python.org/
+
+* Instalação do Git
+> https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git
+
+
+### Clonando projeto para máquina local:
+
+* Criar repositório onde será mantido o projeto e posicione-se, via terminal, dentro dele. 
+* Rode o comando
+```
+git clone https://github.com/csdamo/django_alura_space.git
+```
+
+### Criando ambiente virtual de desenvolvimento:
+
+* No prompt de comando, executar o comando
+```
+pip install virtualenv
+```
+
+* Pelo prompt, vá até o diretório do projeto e execute o comando a seguir. Será criada uma pasta dentro do repositório com o nome "venv"
+```
+virtualenv venv
+``` 
+* Ative o ambiente virtual de desenvolvimento: ainda no prompt de comando (dentro do repositório do projeto) execute o comando
+```
+venv/Scripts/activate 
+```
+(Windows) 
+```
+source venv/bin/activate
+```
+(Linux) 
+
+* Para você saber se o ambiente virtual foi ativado, perceba se antes do caminho do seu diretório, aparece o nome do ambiente entre parênteses. 
+> Ex.: (venv) C:\Users\seunome\desenv\django_alura_space>
+
+
+### Instalando bibliotecas
+
+* Dentro do ambiente virtual, para instalar as bibliotecas na versão correta para o projeto , rodar o comando
+```
+pip install -r requirements.txt
+```
+
+
+### Criando Banco de dados e testando aplicação
 * Teste a aplicação subindo o servidor: ainda com o seu ambiente virtual ativado, rode o comando ```python .\manage.py runserver```. Você deverá ver a mensagem:
 
 ![image](https://user-images.githubusercontent.com/64370426/220436468-d19f26a5-378a-4256-830e-42903878e22b.png)
 * Saia do servidor apertando ```Ctrl``` + ```c``` para voltar para a linha de comando.
-* Certifique-se de que continua com o ambiente virtual ativado, e rode o comando ```python .\manage.py migrate```. Isso fará com que um banco de dados seja criado com as tabelas necessárias para o projeto
-* Atualmente, não há uma interface personalizada para que qualquer usuário possa publicar suas fotos, sendo assim, isso deverá ser feito pelo console do admin. Para isso, crie um superusuário através do comando ```python .\manage.py createsuperuser```. Informe seu nome de usuário, e-mail (opcional) e senha.
+* Certifique-se de que continua com o ambiente virtual ativado, e rode o comando a seguir para riar obanco de dados e as tabelas necessárias para o projeto
+```
+python .\manage.py migrate
+```
+
+* Atualmente, não há uma interface personalizada para que qualquer usuário possa publicar suas fotos, sendo assim, isso deverá ser feito pelo console do admin. Para isso, crie um superusuário através do comando 
+```
+python .\manage.py createsuperuser
+```
+* Informe seu nome de usuário, e-mail (opcional) e senha.
 * Agora, suba o servidor novamente (```python .\manage.py runserver```) e vá até o seu navegador e coloque o endereço: http://127.0.0.1:8000/admin. Você será direcionado para uma página de login.
 * Com isso, você já pode cadastrar suas fotos e ver o resultado na página principal: http://127.0.0.1:8000
