@@ -29,7 +29,7 @@ def buscar (request):
         messages.error(request, 'Usuário não logado')
         return redirect('login')
     
-    termo_pesquisa = None
+    termo_pesquisa = ''
     if request.GET.get('buscar'):
         termo_pesquisa = request.GET.get('buscar')
     fotografias = Fotografia.objects.order_by('-data_fotografia').filter(publicada=True).filter(nome__icontains=termo_pesquisa)
