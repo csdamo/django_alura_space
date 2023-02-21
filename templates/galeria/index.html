@@ -20,24 +20,24 @@
             </ul>
         </section>
         <section class="galeria">
-            <div class="cards">
-                <h2 class="cards__titulo">Navegue pela galeria</h2>
-                <ul class="cards__lista">
+            <div class="cartoes">
+                <h2 class="cartoes__titulo">Navegue pela galeria</h2>
+                <ul class="cartoes__lista">
                     {% if fotografias %}
                         {% for fotografia in fotografias %}
-                        <li class="card">
+                        <li class="cartao">
                             <a href="{% url 'imagem' fotografia.id %}">
                                 {% if fotografia.foto == "" or fotografia.foto == null %}
-                                    <img class="card__imagem" src="{% static '/assets/imagens/Image_not_available.png' %}" alt="foto">
+                                    <img class="cartao__imagem" src="{% static '/assets/imagens/Image_not_available.png' %}" alt="foto">
                                 {% else %}
-                                <img class="card__imagem" src="{{fotografia.foto.url}}" alt="foto">
+                                <img class="cartao__imagem" src="{{fotografia.foto.url}}" alt="foto">
                                 {% endif %}
                             </a>
-                            <span class="card__tag">{{fotografia.categoria}}</span>
-                            <div class="card__info">
-                                <p class="card__titulo">{{fotografia.nome}}</p>
-                                <div class="card__texto">
-                                    <p class="card__descricao">{{fotografia.legenda}}</p>
+                            <span class="cartao__selo">{{fotografia.categoria}}</span>
+                            <div class="cartao__info">
+                                <p class="cartao__titulo">{{fotografia.nome}}</p>
+                                <div class="cartao__texto">
+                                    <p class="cartao__descricao">{{fotografia.legenda}}</p>
                                     <span>
                                         <a href="{% url 'favorito' fotografia.id %}">
                                             {% if user_id in fotografia.favorito.all %}

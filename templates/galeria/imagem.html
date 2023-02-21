@@ -7,9 +7,9 @@
         <section class="imagem">
             <div class="imagem__conteudo">
                 {% if fotografia.foto == "" or fotografia.foto == null %}
-                    <img class="card__imagem" src="{% static '/assets/imagens/Image_not_available.png' %}" alt="foto">
+                    <img class="cartao__imagem" src="{% static '/assets/imagens/Image_not_available.png' %}" alt="foto">
                 {% else %}
-                    <img class="card__imagem" src="{{fotografia.foto.url}}" alt="foto">
+                    <img class="cartao__imagem" src="{{fotografia.foto.url}}" alt="foto">
                 {% endif %}
                 <div class="imagem__info">
                     <div class="imagem__texto">
