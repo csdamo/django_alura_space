@@ -3,8 +3,11 @@
 <section class="menu-lateral">
     <nav class="menu-lateral__navegacao">
         <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
+        {% if not user.is_authenticated %}
         <a href="{% url 'login' %}"><img src="{% static '/assets/ícones/1x/login.png' %}"> Login</a>
         <a href="{% url 'cadastro' %}"><img src="{% static '/assets/ícones/1x/register.png' %}"> Cadastro</a>
+        {% else %}
         <a href="{% url 'logout' %}"><img src="{% static '/assets/ícones/1x/logout.png' %}"> Logout</a>
+        {% endif %}
     </nav>
 </section>
