@@ -3,13 +3,16 @@
 <section class="menu-lateral">
     <nav class="menu-lateral__navegacao">
         {% if not user.is_authenticated %}
-        <a href="{% url 'login' %}"><img src="{% static '/assets/ícones/1x/login.png' %}"> Login</a>
-        <a href="{% url 'cadastro' %}"><img src="{% static '/assets/ícones/1x/register.png' %}"> Cadastro</a>
+            <a href="{% url 'login' %}"><img src="{% static '/assets/ícones/1x/login.png' %}"> Login</a>
+            <a href="{% url 'cadastro' %}"><img src="{% static '/assets/ícones/1x/register.png' %}"> Cadastro</a>
         {% else %}
-        <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
-        <a href="{% url 'mais_votados' %}"><img src="{% static '/assets/ícones/1x/mais_votados.png' %}"> Mais Votados</a>
-        <a href="{% url 'meus_favoritos' %}"><img src="{% static '/assets/ícones/1x/star.png' %}"> Meus Favoritos</a>
-        <a href="{% url 'logout' %}"><img src="{% static '/assets/ícones/1x/logout.png' %}"> Logout</a>
+            <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
+            <a href="{% url 'mais_votados' %}"><img src="{% static '/assets/ícones/1x/mais_votados.png' %}"> Mais Votados</a>
+            <a href="{% url 'meus_favoritos' %}"><img src="{% static '/assets/ícones/1x/star.png' %}"> Meus Favoritos</a>
+            <a href="{% url 'logout' %}"><img src="{% static '/assets/ícones/1x/logout.png' %}"> Logout</a>
+            {% if user.is_staff %}
+                <a href="/admin"><img src="{% static '/assets/ícones/1x/admin.png' %}"> Admin</a>
+            {% endif %}
         {% endif %}
     </nav>
 </section>
