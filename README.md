@@ -89,8 +89,7 @@ def favorito(request, foto_id):
 * Cada vez que um usuário entra no detalhe da imagem, é adicionada uma visualização à fotografia
 * O usuário pode ver quais são as imagens mais visualizadas
 
-## Estrutura de dados
-
+## Diagrama de Classes
 ![image](https://user-images.githubusercontent.com/64370426/220458310-8de78c90-865c-4b09-9c9d-37ec9eb84024.png)
 > Alguns campos da tabela de usuário não foram detalhados aqui. Esta tabela corresponde a tabela criada pelo Django para controle de usuários do sistema
 
